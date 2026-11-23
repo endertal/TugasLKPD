@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<title>Formulir Pendaftaran Turnamen Minecraft</title>
+<style>
+  body {
+    font-family: "Courier New", Consolas, monospace;
+    background-color: #2c2c2c;
+    background-size: 32px 32px;
+    margin: 0;
+    padding: 24px 12px;
+    color: #222;
+  }
+  main {
+    max-width: 740px;
+    margin: 0 auto;
+  }
+ 
+  header h1 {
+    margin: 0 0 6px;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+  }
+
+  header p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #eafbe0;
+    text-shadow: none;
+  }
+
+  form {
+    padding: 24px 28px 30px;
+  }
+
+  fieldset {
+    border: 3px solid var(--coklat-tanah);
+    background-color: #fffdf7;
+    margin: 0 0 22px;
+    padding: 16px 18px 20px;
+  }
+
+  legend {
+    font-weight: bold;
+    color: var(--coklat-tua);
+    padding: 2px 10px;
+    background-color: var(--krem);
+    border: 2px solid var(--coklat-tanah);
+    font-size: 0.92rem;
+  }
+
+  .field {
+    margin-bottom: 16px;
+  }
+
+  .field:last-child {
+    margin-bottom: 0;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 0.88rem;
+  }
+
+  .hint {
+    display: block;
+    font-weight: normal;
+    color: #6b6b6b;
+    font-size: 0.76rem;
+    margin-top: 4px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  select,
+  textarea,
+  input[type="file"] {
+    width: 100%;
+    padding: 9px 10px;
+    border: 2px solid var(--batu);
+    background-color: var(--putih);
+    font-size: 0.9rem;
+    font-family: inherit;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--hijau-tua);
+    box-shadow: 0 0 0 3px rgba(93, 156, 63, 0.25);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 90px;
+  }
+
+  .pilihan-baris {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  .pilihan-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: normal;
+  }
+
+  .pilihan-item input {
+    width: auto;
+    margin: 0;
+  }
+
+  .required-mark {
+    color: #b3261e;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    background-color: var(--coklat-tanah);
+    color: var(--putih);
+    border: 3px solid var(--coklat-tua);
+    padding: 13px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    letter-spacing: 1px;
+  }
+
+  button[type="submit"]:hover {
+    background-color: var(--coklat-tua);
+  }
+
+  #pesan-status {
+    margin-top: 14px;
+    padding: 10px 14px;
+    border: 2px solid var(--hijau-tua);
+    background-color: #e2f3d8;
+    color: var(--hijau-tua);
+    font-size: 0.85rem;
+    display: none;
+  }
+
+  #pesan-status.tampil {
+    display: block;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Pendaftaran Turnamen Minecraft</h1>
+  </header>
+  <form action="#" method="post">
+    <fieldset>
+        <legend>Data Kapten Tim</legend>
+        <label for="nama-tim">Nama Tim</label>
+        <input type="text" id="nama-tim" name="nama-tim" placeholder="Nama Tim" required>
+ 
+        <label for="tanggal-">Tanggal Lahir Kapten <span class="required-mark">*</span></label>
+        <input type="date" id="tanggal-" name="tanggal-" required>
+
+
+      <div class="field">
+        <label for="username-mc">Username Minecraft Kapten <span class="required-mark">*</span>
+          <span class="hint">3&ndash;16 karakter, hanya huruf, angka, dan garis bawah (_)</span>
+        </label>
+        <input
+          type="text"
+          id="username-mc"
+          name="username_mc"
+          placeholder="Contoh: Rangga_Craft99"
+          pattern="[A-Za-z0-9_]{3,16}"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label>Platform yang Digunakan <span class="required-mark">*</span></label>
+        <div class="pilihan-baris">
+          <span class="pilihan-item">
+            <input type="radio" id="platform-java" name="platform" value="Java Edition" required>
+            <label for="platform-java">Java Edition</label>
+          </span>
+          <span class="pilihan-item">
+            <input type="radio" id="platform-bedrock" name="platform" value="Bedrock Edition">
+            <label for="platform-bedrock">Bedrock Edition</label>
+          </span>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Data Tim &amp; Anggota</legend>
+
+      <div class="field">
+        <label for="nama-tim">Nama Tim <span class="required-mark">*</span></label>
+        <input
+          type="text"
+          id="nama-tim"
+          name="nama_tim"
+          placeholder="Contoh: Redstone Warriors"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label for="versi-mc">Versi Minecraft yang Dipakai
+          <span class="hint">Ketik atau pilih dari saran</span>
+        </label>
+        <input
+          type="text"
+          id="versi-mc"
+          name="versi_mc"
+          list="daftar-versi"
+          placeholder="Contoh: 1.21.1"
+        >
+        <datalist id="daftar-versi">
+          <option value="1.20.1">
+          <option value="1.20.4">
+          <option value="1.21">
+          <option value="1.21.1">
+          <option value="1.21.4">
+        </datalist>
+      </div>
+
+      <div class="field">
+        <label for="daftar-anggota">Daftar Anggota Tim <span class="required-mark">*</span>
+          <span class="hint">Tulis nama &amp; username Minecraft tiap anggota, satu baris per orang</span>
+        </label>
+        <textarea
+          id="daftar-anggota"
+          name="daftar_anggota"
+          rows="4"
+          placeholder="Contoh:&#10;1. Dimas Aditya - DimasBlock21&#10;2. Nabila Putri - NabilaCraft"
+          required
+        ></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferensi Pertandingan</legend>
+
+      <div class="field">
+        <label for="mode-turnamen">Mode Turnamen yang Diikuti <span class="required-mark">*</span></label>
+        <select id="mode-turnamen" name="mode_turnamen" required>
+          <option value="" selected disabled>-- Pilih mode --</option>
+          <option value="Survival Games">Survival Games</option>
+          <option value="PvP Duel">PvP Duel</option>
+          <option value="Build Battle">Build Battle</option>
+          <option value="Parkour Race">Parkour Race</option>
+          <option value="Capture The Flag">Capture The Flag</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Jadwal Sesi yang Bisa Diikuti
+          <span class="hint">Boleh pilih lebih dari satu</span>
+        </label>
+        <div class="pilihan-baris">
+          <span class="pilihan-item">
+            <input type="checkbox" id="jadwal-sabtu-pagi" name="jadwal[]" value="Sabtu Pagi">
+            <label for="jadwal-sabtu-pagi">Sabtu Pagi</label>
+          </span>
+          <span class="pilihan-item">
+            <input type="checkbox" id="jadwal-sabtu-malam" name="jadwal[]" value="Sabtu Malam">
+            <label for="jadwal-sabtu-malam">Sabtu Malam</label>
+          </span>
+          <span class="pilihan-item">
+            <input type="checkbox" id="jadwal-minggu-pagi" name="jadwal[]" value="Minggu Pagi">
+            <label for="jadwal-minggu-pagi">Minggu Pagi</label>
+          </span>
+          <span class="pilihan-item">
+            <input type="checkbox" id="jadwal-minggu-malam" name="jadwal[]" value="Minggu Malam">
+            <label for="jadwal-minggu-malam">Minggu Malam</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Kesediaan Tambahan</label>
+        <div class="pilihan-baris">
+          <span class="pilihan-item">
+            <input type="checkbox" id="setuju-rekam" name="kesediaan[]" value="Bersedia direkam/live streaming">
+            <label for="setuju-rekam">Bersedia direkam/live streaming</label>
+          </span>
+          <span class="pilihan-item">
+            <input type="checkbox" id="setuju-latihan" name="kesediaan[]" value="Ikut sesi latihan gratis">
+            <label for="setuju-latihan">Ikut sesi latihan gratis</label>
+          </span>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Berkas &amp; Catatan Tambahan</legend>
+
+      <div class="field">
+        <label for="bukti-daftar">Unggah Bukti Pendaftaran <span class="required-mark">*</span>
+          <span class="hint">Bukti pembayaran atau tangkapan layar akun, format JPG/PNG, maksimal 2 MB</span>
+        </label>
+        <input
+          type="file"
+          id="bukti-daftar"
+          name="bukti_daftar"
+          accept="image/png, image/jpeg"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label for="catatan-tambahan">Catatan Tambahan
+          <span class="hint">Permintaan khusus atau pertanyaan untuk panitia</span>
+        </label>
+        <textarea
+          id="catatan-tambahan"
+          name="catatan_tambahan"
+          rows="3"
+          placeholder="Tuliskan catatan Anda di sini (opsional)"
+        ></textarea>
+      </div>
+    </fieldset>
+
+    <button type="submit">Daftarkan Tim</button>
+    <p id="pesan-status" role="status"></p>
+  </form>
+</main>
+
+<script>
+  var formPendaftaran = document.getElementById("form-pendaftaran-minecraft");
+  var pesanStatus = document.getElementById("pesan-status");
+
+  formPendaftaran.addEventListener("submit", function (e) {
+    e.preventDefault();
+    pesanStatus.textContent = "Tim berhasil didaftarkan. Sampai jumpa di arena!";
+    pesanStatus.classList.add("tampil");
+  });
+</script>
+</body>
+</html>
