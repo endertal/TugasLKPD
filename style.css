@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 #kotak-pesan {
   height: 150px;
   background-color: lightyellow;
   margin: 15px;
   border: 1px solid red;
 }
+=======
+.kartu-profile{
+    width: 300px;
+    background-color: gray;
+    padding: 20px;
+    border: 2px solid blue;
+}
+>>>>>>> b128bc4 (Tammbah Halaman Utama)
